@@ -24,7 +24,7 @@ function AdminExport() {
 
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3001/inscripciones");
+        const response = await fetch("https://congreso-geografia-ucr.onrender.com/inscripciones");
         if (!response.ok) throw new Error("Error al cargar inscripciones");
         const data = await response.json();
         setInscripciones(data);
@@ -43,7 +43,7 @@ function AdminExport() {
         act.toLowerCase().includes(filtroActividad.toLowerCase())
       );
     const matchCarrera = filtroCarrera === "" || insc.carrera === filtroCarrera;
-    const matchAno = filtroAno === "" || insc.año === filtroAno;
+    const matchAno = filtroAno === "" || insc.año === filtroAno.toString();
     return matchActividad && matchCarrera && matchAno;
   });
 
